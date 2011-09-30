@@ -2,10 +2,11 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="MultiThreadDownloaderDatastorePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    
     <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.DownloadItemStatistics</class>
+    <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.ProxyFailureStatistics</class>
+    <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.AssignedProxyStatistics</class>
     <!--<class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.UsageStatistics</class>-->
-    
+    <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.ProxiesUsageStatistics</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/multi-thread-download-datastore"/>
       <property name="javax.persistence.jdbc.password" value="paris-pass"/>

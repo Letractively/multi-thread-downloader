@@ -8,6 +8,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.util.List;
 import java.util.UUID;
+import sk.lieskove.jianghongtiao.multithreaddownloader.download.DownloadItem;
 
 /**
  * Date of create: Sep 21, 2011
@@ -39,6 +40,6 @@ public interface SitePoolingManager {
      * @return
      * @throws NullPointerException when the URL is null
      */
-    public UUID addLink(URL url) throws NullPointerException;
+    public void addItem(DownloadItem item) throws NullPointerException, IllegalArgumentException;
     
 }

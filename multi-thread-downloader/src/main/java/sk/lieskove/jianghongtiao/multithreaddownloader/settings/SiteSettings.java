@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.AuthenticateProxy;
 
 /**
  * Date of create: Sep 19, 2011
@@ -19,7 +20,7 @@ import org.apache.log4j.Logger;
 public class SiteSettings {
 
     private String sitePattern = "";
-    private List<Proxy> proxies = null;
+    private List<AuthenticateProxy> proxies = null;
     private int maxConnections = 0;
     private Integer waitMin = 0;
     private Integer waitMax = 0;
@@ -112,11 +113,11 @@ public class SiteSettings {
         this.maxConnections = maxConnections;
     }
 
-    public List<Proxy> getProxies() {
+    public List<AuthenticateProxy> getProxies() {
         return proxies;
     }
 
-    public void setProxies(List<Proxy> proxies) {
+    public void setProxies(List<AuthenticateProxy> proxies) {
         this.proxies = proxies;
     }
 
@@ -201,8 +202,8 @@ public class SiteSettings {
     public String toString() {
         String proxyString = "";
         if (proxies != null) {
-            for (Proxy proxy : proxies) {
-                proxyString += "\n\t\t * " + proxy.address().toString();
+            for (AuthenticateProxy proxy : proxies) {
+                proxyString += "\n\t\t * " + proxy.toString();
             }
         }
         return "SiteSettings:" + "maxConnections=" + maxConnections
