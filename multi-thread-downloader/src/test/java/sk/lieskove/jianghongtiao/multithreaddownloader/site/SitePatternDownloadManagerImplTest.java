@@ -71,7 +71,7 @@ public class SitePatternDownloadManagerImplTest extends TestCase {
         settings.setConnections(3);
         settings.setInTime(3);
         settings.setMaxConnections(2);
-        settings.setMaxConnectionsPerTime("3/3", "seconds");
+        settings.setMaxConnectionsPerTime("15/1", "seconds");
         settings.setNoProxyEnabled(true);
         settings.setSitePattern(".*");
         settings.setWaitTimeout("5-1500");

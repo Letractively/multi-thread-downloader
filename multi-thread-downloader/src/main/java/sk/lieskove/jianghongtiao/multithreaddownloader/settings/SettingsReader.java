@@ -10,6 +10,7 @@ import java.net.Proxy;
 import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,6 +24,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.AuthenticateProxy;
 
 /**
  * Date of create: Sep 18, 2011
@@ -46,24 +48,46 @@ public class SettingsReader {
                 SiteSettings settings = new SiteSettings();
                 result.add(settings);
                 //------------------------make settings-------------------------
-
+                
+                
+                Node urlPattern = node.getAttributes().getNamedItem("url-pattern");
                 Double maxConn = (Double) xPath.evaluate("max-connections", node,
                         XPathConstants.NUMBER);
-                String wait = getSubnode("wait-timeout", node).getTextContent();
-                String maxConnPerTime = getSubnode("max-connections-per-time",
-                        node).getTextContent();
-                String maxConnPerTimeTimeUnit = getSubnode(
-                        "max-connections-per-time@timeUnit", node).
-                        getTextContent();
+                Node wait = getSubnode("wait-timeout", node);
+                Node maxConnPT = getSubnode("max-connections-per-time", node);
+                Node maxConnPerTime = maxConnPT;
+                Node maxConnPerTimeTimeUnit = maxConnPT.getAttributes().getNamedItem("timeUnit");
+                
                 Boolean noProxy = (Boolean) xPath.evaluate("no-proxy-possible",
                         node, XPathConstants.BOOLEAN);
-                List<Proxy> proxyList = getProxies(node);
+                List<AuthenticateProxy> proxyList = getProxies(node);
 
-                settings.setNoProxyEnabled(noProxy);
-                settings.setMaxConnections(maxConn.intValue());
-                settings.setWaitTimeout(wait);
-                settings.setMaxConnectionsPerTime(maxConnPerTime,
-                        maxConnPerTimeTimeUnit);
+                if(urlPattern != null){
+                    settings.setSitePattern(urlPattern.getTextContent());
+                }
+                if(noProxy != null){
+                    settings.setNoProxyEnabled(noProxy);
+                }
+                if(maxConn != null){
+                    settings.setMaxConnections(maxConn.intValue());
+                }
+                if(wait != null){
+                    settings.setWaitTimeout(wait.getTextContent());
+                }
+                if(maxConnPerTime != null){
+                    if(maxConnPerTimeTimeUnit != null){
+                        settings.setMaxConnectionsPerTime(
+                                maxConnPerTime.getTextContent(),
+                                maxConnPerTimeTimeUnit.getTextContent());
+                    } else {
+                        settings.setMaxConnectionsPerTime(
+                                maxConnPerTime.getTextContent(), 
+                                "seconds");
+                    }
+                    
+                }
+                
+                
                 settings.setProxies(proxyList);
             }
 
@@ -79,22 +103,36 @@ public class SettingsReader {
         return result;
     }
 
-    private static List<Proxy> getProxies(Node node) throws
+    private static List<AuthenticateProxy> getProxies(Node node) throws
             XPathExpressionException {
         NodeList proxies = getSubnodes("proxy", node);
-        List<Proxy> result = new ArrayList<Proxy>();
+        List<AuthenticateProxy> result = new ArrayList<AuthenticateProxy>();
         for (int i = 0; i < proxies.getLength(); i++) {
             Node proxy = proxies.item(i);
 
             String enabledS = (String) xPath.evaluate("enabled", proxy,
                     XPathConstants.STRING);
-            Boolean proxyEnabled = Boolean.parseBoolean(enabledS);
+            Boolean proxyEnabled;
+            if(enabledS != null){
+                proxyEnabled = Boolean.parseBoolean(enabledS);
+            } else {
+                proxyEnabled = true;
+            }
             if (proxyEnabled) {
-                String proxyServer = getSubnode("server", proxy).getTextContent();
+                Node proxyServer = getSubnode("server", proxy);
                 Double proxyPort = (Double) xPath.evaluate("port", proxy,
                         XPathConstants.NUMBER);
-                result.add(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
-                        proxyServer, proxyPort.intValue())));
+                Node username = getSubnode("username", proxy);
+                Node password = getSubnode("password", proxy);
+                if((username == null) || (password == null) || 
+                        (username.getTextContent().equals(""))){
+                    result.add(new AuthenticateProxy(proxyServer.getTextContent(), 
+                            proxyPort.intValue()));
+                } else {
+                    result.add(new AuthenticateProxy(proxyServer.getTextContent(), 
+                            proxyPort.intValue(), username.getTextContent(),
+                            password.getTextContent()));
+                }
             }
         }
         return result;

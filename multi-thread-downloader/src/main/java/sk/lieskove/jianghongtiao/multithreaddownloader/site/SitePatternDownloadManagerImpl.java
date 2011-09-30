@@ -51,7 +51,8 @@ public class SitePatternDownloadManagerImpl implements
     private Timestamp lastFinished = getActualTimestamp();
     private Persist persistence = Persist.getSingleton();
     private TimerThread timerThread = null;
-    private static Logger log = Logger.getLogger(SitePatternDownloadManagerImpl.class.getName());
+    private static Logger log = Logger.getLogger(SitePatternDownloadManagerImpl.class.
+            getName());
 
     private Timestamp getActualTimestamp() {
         Date now = new Date();
@@ -65,25 +66,27 @@ public class SitePatternDownloadManagerImpl implements
         this.settings = settings;
         this.pattern = Pattern.compile(settings.getSitePattern(),
                 Pattern.CASE_INSENSITIVE);
-        log.debug("Site Pattern Download Manager created with url: " + 
-                settings.getSitePattern() + " with settings: " + settings.toString());
+        log.debug("Site Pattern Download Manager created with url: " + settings.
+                getSitePattern() + " with settings: " + settings.toString());
     }
 
     private void run() {
         //add to runningMap, increas active connections, take from queue
+        DownloadItem downloadItem;
         synchronized (syncObj) {
             if ((queue == null) || (queue.isEmpty())) {
                 return;
             }
-            DownloadItem downloadItem = queue.poll();
-            downloadItem.getDocument().start();
+            downloadItem = queue.poll();
             downloadItem.setRunThread(getActualTimestamp());
             downloadItem.setState(DownloadItemState.RUNNING);
             runningMap.put(downloadItem.getDocument(), downloadItem);
             activeConnections++;
-            log.debug("Run item with UUID: "+ downloadItem.getUuid() + " and URL: " +
-                    downloadItem.getDocument().getURL().toString());
+            log.debug("Run item with UUID: " + downloadItem.getUuid()
+                    + " and URL: " + downloadItem.getDocument().getURL().
+                    toString());
         }
+        downloadItem.getDocument().start();
     }
 
     public void addItem(DownloadItem item) {
@@ -100,15 +103,18 @@ public class SitePatternDownloadManagerImpl implements
             item.getDocument().setSitePatternDownloadManager(this);
             item.setState(DownloadItemState.WAITING);
             map.put(item.getDocument(), item);
-            log.debug("Added item with UUID: " + item.getUuid() + " with URL: " +
-                    item.getDocument().getURL().toString());
+            log.debug("Added item with UUID: " + item.getUuid() + " with URL: "
+                    + item.getDocument().getURL().toString());
             checkRun();
         }
     }
 
     private void checkRun() {
-        if ((queue == null) || (queue.isEmpty())) {
-            return;
+        synchronized (syncObj) {
+            if ((queue == null) || (queue.isEmpty())) {
+                return;
+            }
+
         }
         Timestamp wait = waitToNextRun();
         if (wait.getTime() == 0) {
@@ -120,16 +126,17 @@ public class SitePatternDownloadManagerImpl implements
              * wait number of milliseconds - new thread waits specified number
              * of milliseconds and then notifies this instance
              */
-            if (timerThread == null) {
-                timerThread = new TimerThread(wait.getTime(), this);
-                timerThread.start();
+            synchronized (syncObj) {
+                if (timerThread == null) {
+                    timerThread = new TimerThread(wait.getTime(), this);
+                    timerThread.start();
+                }
             }
         }
 
         if (wait.getTime() < 0) {
             //just wait for notification about thread finish
         }
-
     }
 
     /**
@@ -183,13 +190,15 @@ public class SitePatternDownloadManagerImpl implements
             }
             //connections per time
             if (settings.getInTime() > 0) {
-                List<Timestamp> usageStatistics = getUsageStatistics(settings.getInTimeInMs());
-                if ((usageStatistics.size()+activeConnections) >= settings.getConnections()) {
+                List<Timestamp> usageStatistics = getUsageStatistics(settings.
+                        getInTimeInMs());
+                if ((usageStatistics.size() + activeConnections) >= settings.
+                        getConnections()) {
                     Timestamp oldest = usageStatistics.get(0);
                     //actual time - oldest time = we already waited
                     //how long to wait - we already waited = we have to wait
                     Long w = countNextWait(settings.getInTimeInMs(), oldest);
-                    if(w < 0){
+                    if (w < 0) {
                         return new Timestamp(0);
                     } else {
                         return new Timestamp(w);
@@ -234,14 +243,15 @@ public class SitePatternDownloadManagerImpl implements
     public void finishedDownload(RemoteDocumentThread document) {
 
         synchronized (syncObj) {
-            log.debug("Finished download with URL: " + document.getURL().toString());
+            log.debug("Finished download with URL: " + document.getURL().
+                    toString());
 
             DownloadItem finishedItem = runningMap.remove(document);
             lastFinished = getActualTimestamp();
             finishedItem.setThreadFinished(lastFinished);
             finishedItem.setState(DownloadItemState.FINISHED);
             activeConnections--;
-            
+
             //write statistics for future usage
             DownloadItemStatistics itemStatistics = new DownloadItemStatistics(
                     finishedItem, pattern.pattern());
@@ -251,7 +261,9 @@ public class SitePatternDownloadManagerImpl implements
     }
 
     public void timeLeft() {
-        timerThread = null;
-        checkRun();
+        synchronized (syncObj) {
+            timerThread = null;
+            checkRun();
+        }
     }
 }

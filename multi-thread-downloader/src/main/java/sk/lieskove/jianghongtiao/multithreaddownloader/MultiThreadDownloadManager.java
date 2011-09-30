@@ -7,6 +7,7 @@ package sk.lieskove.jianghongtiao.multithreaddownloader;
 import java.net.URL;
 import java.util.List;
 import java.util.UUID;
+import sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocument;
 import sk.lieskove.jianghongtiao.paris.web.content.RemoteFile;
 
 /**
@@ -238,7 +239,7 @@ public interface MultiThreadDownloadManager {
      * @throws IllegalArgumentException when no such uuid exists or download package
      * with such uuid was already taken over.
      */
-    public RemoteFile getDownload(UUID uuid);
+    public RemoteDocument getDownload(UUID uuid);
     
     /**
      * Check if all threads downloading content from the Internet already finished. 
@@ -250,6 +251,6 @@ public interface MultiThreadDownloadManager {
      * @throws IllegalArgumentException when no such uuid exists or download package
      * with such uuid was already taken over.
      */
-    public List<RemoteFile> getPackage(UUID uuid);
+    public List<RemoteDocument> getPackage(UUID uuid);
     
 }
