@@ -4,7 +4,7 @@
  */
 package sk.lieskove.jianghongtiao.multithreaddownloader.settings;
 
-import java.net.Proxy;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
@@ -20,7 +20,7 @@ import sk.lieskove.jianghongtiao.multithreaddownloader.network.AuthenticateProxy
 public class SiteSettings {
 
     private String sitePattern = "";
-    private List<AuthenticateProxy> proxies = null;
+    private List<AuthenticateProxy> proxies = new ArrayList<AuthenticateProxy>();
     private int maxConnections = 0;
     private Integer waitMin = 0;
     private Integer waitMax = 0;

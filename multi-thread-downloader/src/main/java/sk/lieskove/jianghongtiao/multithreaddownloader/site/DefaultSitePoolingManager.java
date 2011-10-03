@@ -47,6 +47,7 @@ public class DefaultSitePoolingManager implements SitePoolingManager {
      * @throws IllegalArgumentException 
      */
     private SitePatternDownloadManager getManager(URL url) throws IllegalArgumentException{
+        //go through all patterns and use first one
         for (String pattern : managersPattern.keySet()) {
             Pattern p = managersPattern.get(pattern);
             if(p.matcher(url.toString()).matches()){

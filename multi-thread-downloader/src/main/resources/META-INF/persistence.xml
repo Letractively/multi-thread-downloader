@@ -5,8 +5,6 @@
     <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.DownloadItemStatistics</class>
     <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.ProxyFailureStatistics</class>
     <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.AssignedProxyStatistics</class>
-    <!--<class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.UsageStatistics</class>-->
-    <class>sk.lieskove.jianghongtiao.multithreaddownloader.persistence.ProxiesUsageStatistics</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/multi-thread-download-datastore"/>
       <property name="javax.persistence.jdbc.password" value="paris-pass"/>

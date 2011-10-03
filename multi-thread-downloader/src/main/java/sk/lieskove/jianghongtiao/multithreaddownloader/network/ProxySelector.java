@@ -45,7 +45,7 @@ public interface ProxySelector {
      * @param proxy not available proxy server
      * @param url resource location to download
      */
-    public void proxyFailure(AuthenticateProxy proxy, URL url, 
+    public void proxyFailure(AuthenticateProxy proxy, URL url, String uuid,
             String exception);
     
     /**
@@ -57,7 +57,8 @@ public interface ProxySelector {
      * @param url resource location to download
      * @param usedProxies list of proxies used during downloading
      */
-    public void proxyUse(AuthenticateProxy proxy, URL url, List<AuthenticateProxy> usedProxies);
+    public void proxyUse(AuthenticateProxy proxy, URL url, String uuid, 
+            List<AuthenticateProxy> usedProxies);
     
     /**
      * Inform instance that no more proxies to connect left and that download finished with failure.
@@ -66,7 +67,8 @@ public interface ProxySelector {
      * @param url URL of failed download
      * @param usedProxies list of proxies used during downloading
      */
-    public void noMoreProxies(URL url, List<AuthenticateProxy> usedProxies);
+    public void noMoreProxies(URL url, String uuid, 
+            List<AuthenticateProxy> usedProxies);
     
     /**
      * Ask instance if there is any proxy server to use in the other download. 

@@ -20,7 +20,9 @@ import javax.persistence.Id;
 @Entity
 public class AssignedProxyStatistics implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    private String uuid;
+    @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
     
     private String url;
@@ -33,14 +35,15 @@ public class AssignedProxyStatistics implements Serializable {
     public AssignedProxyStatistics() {
     }
 
-    public AssignedProxyStatistics(String urlPattern, String url, String proxyUrl, 
-            String username, String password, Timestamp lastUsed) {
+    public AssignedProxyStatistics(String uuid, String urlPattern, String url, 
+            String proxyUrl, String username, String password, Timestamp lastUsed) {
         this.urlPattern = urlPattern;
         this.url = url;
         this.proxyUrl = proxyUrl;
         this.username = username;
         this.password = password;
         this.used = lastUsed;
+        this.uuid = uuid;
     }
 
     public String getUrlPattern() {
@@ -59,6 +62,14 @@ public class AssignedProxyStatistics implements Serializable {
         this.used = used;
     }
     
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public Long getId() {
         return id;
     }
