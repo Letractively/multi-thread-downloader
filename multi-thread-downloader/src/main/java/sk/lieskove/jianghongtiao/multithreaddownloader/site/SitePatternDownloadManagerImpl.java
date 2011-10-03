@@ -21,6 +21,8 @@ import sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocument;
 import sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread;
 import sk.lieskove.jianghongtiao.multithreaddownloader.download.DownloadItem;
 import sk.lieskove.jianghongtiao.multithreaddownloader.download.DownloadItemState;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.SettingsProxySelector;
 import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.DownloadItemStatistics;
 import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.Persist;
 import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.TimestampComparatorAZ;
@@ -49,10 +51,11 @@ public class SitePatternDownloadManagerImpl implements
     private ConcurrentMap<RemoteDocument, DownloadItem> map =
             new ConcurrentHashMap<RemoteDocument, DownloadItem>();
     private Timestamp lastFinished = getActualTimestamp();
-    private Persist persistence = Persist.getSingleton();
+    private final Persist persistence = Persist.getSingleton();
     private TimerThread timerThread = null;
     private static Logger log = Logger.getLogger(SitePatternDownloadManagerImpl.class.
             getName());
+    private ProxySelector ps = null;
 
     private Timestamp getActualTimestamp() {
         Date now = new Date();
@@ -66,6 +69,7 @@ public class SitePatternDownloadManagerImpl implements
         this.settings = settings;
         this.pattern = Pattern.compile(settings.getSitePattern(),
                 Pattern.CASE_INSENSITIVE);
+        this.ps = new SettingsProxySelector(settings);
         log.debug("Site Pattern Download Manager created with url: " + settings.
                 getSitePattern() + " with settings: " + settings.toString());
     }
@@ -80,6 +84,7 @@ public class SitePatternDownloadManagerImpl implements
             downloadItem = queue.poll();
             downloadItem.setRunThread(getActualTimestamp());
             downloadItem.setState(DownloadItemState.RUNNING);
+            downloadItem.getDocument().setProxySelector(ps);
             runningMap.put(downloadItem.getDocument(), downloadItem);
             activeConnections++;
             log.debug("Run item with UUID: " + downloadItem.getUuid()
@@ -147,8 +152,9 @@ public class SitePatternDownloadManagerImpl implements
      */
     private Long countNextWait(Long waitTime, Timestamp lastItem) {
         synchronized (syncObj) {
-            return 5 + waitTime - (getActualTimestamp().getTime()
+            Long result = 5 + waitTime - (getActualTimestamp().getTime()
                     - lastItem.getTime());
+            return result<0?0L:result;
         }
     }
 
@@ -190,6 +196,7 @@ public class SitePatternDownloadManagerImpl implements
             }
             //connections per time
             if (settings.getInTime() > 0) {
+                
                 List<Timestamp> usageStatistics = getUsageStatistics(settings.
                         getInTimeInMs());
                 if ((usageStatistics.size() + activeConnections) >= settings.
@@ -198,7 +205,7 @@ public class SitePatternDownloadManagerImpl implements
                     //actual time - oldest time = we already waited
                     //how long to wait - we already waited = we have to wait
                     Long w = countNextWait(settings.getInTimeInMs(), oldest);
-                    if (w < 0) {
+                    if ((w < 0) || (ps.canUseAnotherProxy())) {
                         return new Timestamp(0);
                     } else {
                         return new Timestamp(w);

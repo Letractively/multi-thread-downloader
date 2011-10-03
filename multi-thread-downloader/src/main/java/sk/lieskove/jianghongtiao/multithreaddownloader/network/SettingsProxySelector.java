@@ -6,7 +6,6 @@ package sk.lieskove.jianghongtiao.multithreaddownloader.network;
 
 import java.net.URL;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
@@ -15,13 +14,10 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityResult;
-import javax.persistence.FieldResult;
 import javax.persistence.Query;
-import javax.persistence.SqlResultSetMapping;
+import org.apache.log4j.Logger;
 import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.AssignedProxyStatistics;
 import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.Persist;
-import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.ProxiesUsageStatistics;
 import sk.lieskove.jianghongtiao.multithreaddownloader.persistence.ProxyFailureStatistics;
 import sk.lieskove.jianghongtiao.multithreaddownloader.settings.SiteSettings;
 import sk.lieskove.jianghongtiao.paris.utils.PropertiesUtils;
@@ -35,13 +31,15 @@ import sk.lieskove.jianghongtiao.paris.utils.PropertiesUtils;
 public class SettingsProxySelector implements ProxySelector {
 
     private final Object syncObj = new Object();
-    private Persist p = Persist.getSingleton();
+    private final Persist p = Persist.getSingleton();
     private SiteSettings settings;
     private List<AuthenticateProxy> proxies;
     private Map<String, Integer> activeDownloads = new TreeMap<String, Integer>();
     private int activeDownloadCount = 0;
-    private EntityManager em = p.getEntityManager();
+    private final EntityManager em = p.getEntityManager();
     private PropertiesUtils pu = new PropertiesUtils(SettingsProxySelector.class);
+    private static Logger log = Logger.getLogger(SettingsProxySelector.class.
+            getName());
 
     public SettingsProxySelector(SiteSettings settings) {
         this.settings = settings;
@@ -54,8 +52,8 @@ public class SettingsProxySelector implements ProxySelector {
             activeDownloads.put(authenticateProxy.toProxyString(), 0);
         }
     }
-    
-    private Map<String, Integer> proxyListStatistics(){
+
+    private Map<String, Long> proxyListStatistics() {
         Date now = new Date();
         synchronized (syncObj) {
             Query query = em.createNativeQuery(
@@ -69,60 +67,80 @@ public class SettingsProxySelector implements ProxySelector {
             query.setParameter(1, time);//success proxy connections - max conn per time - time
             query.setParameter(2, settings.getSitePattern());//url pattern of this instance
             List<Object[]> qeryResult = query.getResultList();
-            Map<String, Integer> result = new TreeMap<String, Integer>();
-            for(Object[] item : qeryResult){
-                result.put((String)item[0], (Integer)item[1]);
+            Map<String, Long> result = new TreeMap<String, Long>();
+            for (Object[] item : qeryResult) {
+                result.put((String) item[0], (Long) item[1]);
             }
             return result;
         }
     }
 
     public List<AuthenticateProxy> getProxyList() {
-        //number of connections was not over settings in time
-        Map<String, Integer> proxyListStatistics = proxyListStatistics();
-        List<AuthenticateProxy> result = new LinkedList<AuthenticateProxy>(proxies);
-        for (int i = 0; i < result.size(); i++) {
-            AuthenticateProxy ap = result.get(i);
-            Integer alreadyUsed = proxyListStatistics.get(ap.toProxyString());
-            if(alreadyUsed == null) alreadyUsed = 0;
-            Integer activeUsed  = activeDownloads.get(ap.toProxyString());
-            if(activeUsed == null) activeUsed = 0;
-            if(alreadyUsed + activeUsed >= settings.getConnections()){
-                result.remove(i);
+        synchronized (syncObj) {
+            //number of connections was not over settings in time
+            Map<String, Long> proxyListStatistics = proxyListStatistics();
+            List<AuthenticateProxy> result = new LinkedList<AuthenticateProxy>();
+            for (int i = 0; i < proxies.size(); i++) {
+                AuthenticateProxy ap = proxies.get(i);
+                Long alreadyUsed = proxyListStatistics.get(ap.toProxyString());
+                if (alreadyUsed == null) {
+                    alreadyUsed = 0L;
+                }
+                Integer activeUsed = activeDownloads.get(ap.toProxyString());
+                if (activeUsed == null) {
+                    activeUsed = 0;
+                }
+                if (alreadyUsed + activeUsed < settings.getConnections()) {
+                    result.add(ap);
+                }
+            }
+            modifyUsedList(result, 1);
+            activeDownloadCount++;
+            return Collections.unmodifiableList(result);
+        }
+    }
+
+    public void proxyFailure(AuthenticateProxy proxy, URL url, String uuid,
+            String exception) {
+        Date d = new Date();
+        synchronized (syncObj) {
+            p.persist(new ProxyFailureStatistics(uuid, settings.getSitePattern(),
+                    url.toString(), proxy.toProxyString(), proxy.getUsername(),
+                    proxy.getPassword(), exception, new Timestamp(d.getTime())));
+        }
+    }
+
+    private void modifyUsedList(List<AuthenticateProxy> usedProxies, int num) {
+        synchronized (syncObj) {
+            for (AuthenticateProxy authenticateProxy : usedProxies) {
+                Integer usedInstances = activeDownloads.get(authenticateProxy.
+                        toProxyString());
+                usedInstances += num;
+                activeDownloads.put(authenticateProxy.toProxyString(),
+                        usedInstances);
             }
         }
-        modifyUsedList(result, 1);
-        activeDownloadCount++;
-        return Collections.unmodifiableList(result);
     }
 
-    public void proxyFailure(AuthenticateProxy proxy, URL url, String exception) {
-        Date d = new Date();
-        p.persist(new ProxyFailureStatistics(settings.getSitePattern(),
-                url.toString(), proxy.toProxyString(), proxy.getUsername(),
-                proxy.getPassword(), exception, new Timestamp(d.getTime())));
-    }
-    
-    private void modifyUsedList(List<AuthenticateProxy> usedProxies, int num){
-        for (AuthenticateProxy authenticateProxy : usedProxies) {
-            Integer usedInstances = activeDownloads.get(authenticateProxy.toProxyString());
-            usedInstances += num;
-            activeDownloads.put(authenticateProxy.toProxyString(), usedInstances);
+    public void proxyUse(AuthenticateProxy proxy, URL url, String uuid,
+            List<AuthenticateProxy> usedProxies) {
+        synchronized (syncObj) {
+            Date d = new Date();
+            activeDownloadCount--;
+            modifyUsedList(usedProxies, -1);
+            p.persist(new AssignedProxyStatistics(uuid,
+                    settings.getSitePattern(),
+                    url.toString(), proxy.toProxyString(), proxy.getUsername(),
+                    proxy.getPassword(), new Timestamp(d.getTime())));
         }
     }
 
-    public void proxyUse(AuthenticateProxy proxy, URL url, List<AuthenticateProxy> usedProxies) {
-        activeDownloadCount--;
-        modifyUsedList(usedProxies, -1);
-        Date d = new Date();
-        p.persist(new AssignedProxyStatistics(settings.getSitePattern(),
-                url.toString(), proxy.toProxyString(), proxy.getUsername(),
-                proxy.getPassword(), new Timestamp(d.getTime())));
-    }
-
-    public void noMoreProxies(URL url, List<AuthenticateProxy> usedProxies) {
-        modifyUsedList(usedProxies, -1);
-        activeDownloadCount--;
+    public void noMoreProxies(URL url, String uuid,
+            List<AuthenticateProxy> usedProxies) {
+        synchronized (syncObj) {
+            modifyUsedList(usedProxies, -1);
+            activeDownloadCount--;
+        }
     }
 
     private List<Object[]> getListOfGoodProxyCounts(Date now,
@@ -150,7 +168,7 @@ public class SettingsProxySelector implements ProxySelector {
         }
     }
 
-    private List<Object[]> getListOfProxyFailures(Timestamp failsPeriod,
+    private List<String> getListOfProxyFailures(Timestamp failsPeriod,
             Integer failsNum) {
         synchronized (syncObj) {
             Query query = em.createNativeQuery(
@@ -168,18 +186,17 @@ public class SettingsProxySelector implements ProxySelector {
     }
 
     public boolean canUseAnotherProxy() {
+        Date now = new Date();
+        String t = pu.getProperty("time-period-of-fails", "10");
+        Long l = Long.parseLong(t);
+        Timestamp failsPeriod = new Timestamp(now.getTime()
+                - TimeUnit.MILLISECONDS.convert(l, TimeUnit.MINUTES));
+        Integer failsNum = Integer.parseInt(
+                pu.getProperty("max-number-of-fails", "5"));
         synchronized (syncObj) {
-
-            Date now = new Date();
-            String t = pu.getProperty("time-period-of-fails", "10");
-            Long l = Long.parseLong(t);
-            Timestamp failsPeriod = new Timestamp(now.getTime()
-                    - TimeUnit.MILLISECONDS.convert(l, TimeUnit.MINUTES));
-            Integer failsNum = Integer.parseInt(
-                    pu.getProperty("max-number-of-fails", "5"));
             List<Object[]> usedResult = getListOfGoodProxyCounts(now,
                     failsPeriod, failsNum);
-            List<Object[]> failureResult = getListOfProxyFailures(failsPeriod,
+            List<String> failureResult = getListOfProxyFailures(failsPeriod,
                     failsNum);
             //counting new proxy list
             Map<String, AuthenticateProxy> newProxyList = new TreeMap<String, AuthenticateProxy>();
@@ -187,13 +204,13 @@ public class SettingsProxySelector implements ProxySelector {
                 newProxyList.put(proxy.toProxyString(), proxy);
             }
             //remove all failed proxies from new proxy list
-            for (Object[] failedProxy : failureResult) {
-                newProxyList.remove((String) failedProxy[0]);
+            for (String failedProxy : failureResult) {
+                newProxyList.remove(failedProxy);
             }
             //count used results
             int usedCount = 0;
             for (Object[] used : usedResult) {
-                usedCount += Integer.getInteger((String) used[1]);
+                usedCount += (Long) used[1];
             }
             return ((newProxyList.size() * settings.getConnections()) - (usedCount
                     + activeDownloadCount)) > 0;

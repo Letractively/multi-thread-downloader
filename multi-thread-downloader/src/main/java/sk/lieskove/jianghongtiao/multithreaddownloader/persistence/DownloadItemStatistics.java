@@ -5,16 +5,11 @@
 package sk.lieskove.jianghongtiao.multithreaddownloader.persistence;
 
 import java.io.Serializable;
-import java.net.URL;
 import java.sql.Timestamp;
-import java.util.UUID;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import sk.lieskove.jianghongtiao.multithreaddownloader.download.DownloadItem;
-import sk.lieskove.jianghongtiao.multithreaddownloader.settings.WaitType;
 
 /**
  * Statistics stored about download item to database. Represents database table.
@@ -28,20 +23,17 @@ import sk.lieskove.jianghongtiao.multithreaddownloader.settings.WaitType;
 public class DownloadItemStatistics implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    private Long id;
+    private String uuid;
     
     private Timestamp runTime;
     private Timestamp finishTime;
     private Timestamp queueTime;
-    private String uuid;
     private String urlPattern;
     private String url;
     private Integer priority;
 
     public DownloadItemStatistics() {
     }
-    
     
     public DownloadItemStatistics(DownloadItem item, String pattern) {
         this.finishTime = item.getThreadFinished();
@@ -51,6 +43,7 @@ public class DownloadItemStatistics implements Serializable {
         this.urlPattern = pattern;
         this.uuid = item.getUuid().toString();
         this.priority = item.getPriority();
+        this.uuid = item.getUuid().toString();
     }
 
     /**
@@ -137,26 +130,12 @@ public class DownloadItemStatistics implements Serializable {
         this.urlPattern = urlPattern;
     }
 
-    /**
-     * Unique identifier of this download item. based on the URL of the document
-     */
     public String getUuid() {
         return uuid;
     }
 
-    /**
-     * Unique identifier of this download item. based on the URL of the document
-     */
     public void setUuid(String uuid) {
         this.uuid = uuid;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
     
     

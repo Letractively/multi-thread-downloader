@@ -45,9 +45,6 @@ public class MultiThreadDownloader implements MultiThreadDownloadManager {
         //create SitePooling manager
         poolingManager = new DefaultSitePoolingManager(siteSettings);
         //create selector - povolenie na pridelenie proxy od MT-DM, inak default
-        
-        
-        
     }
 
     public RemoteDocument getDownload(UUID uuid) {
@@ -102,8 +99,9 @@ public class MultiThreadDownloader implements MultiThreadDownloadManager {
                         new ArrayList<DownloadItem>());
             }
             for (URL url : urls) {
+                UUID uuidDownItem = UUID.randomUUID();
                 DownloadItem item = new DownloadItem(priority, 
-                        new RemoteDocumentThread(url), UUID.randomUUID());
+                        new RemoteDocumentThread(url, uuidDownItem.toString()), uuidDownItem);
                 items.add(item);
                 poolingManager.addItem(item);
             }

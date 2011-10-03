@@ -20,8 +20,7 @@ import javax.persistence.Id;
 @Entity
 public class ProxyFailureStatistics implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private String uuid;
     
     private String url;
     private String proxyUrl;
@@ -34,9 +33,9 @@ public class ProxyFailureStatistics implements Serializable {
     public ProxyFailureStatistics() {
     }
 
-    public ProxyFailureStatistics(String urlPattern, String url, String proxyUrl,
-            String username, String password, String exceptionMessage,
-            Timestamp failure) {
+    public ProxyFailureStatistics(String uuid, String urlPattern, String url, 
+            String proxyUrl, String username, String password, 
+            String exceptionMessage, Timestamp failure) {
         this.url = url;
         this.proxyUrl = proxyUrl;
         this.username = username;
@@ -44,6 +43,7 @@ public class ProxyFailureStatistics implements Serializable {
         this.exceptionMessage = exceptionMessage;
         this.failure = failure;
         this.urlPattern = urlPattern;
+        this.uuid = uuid;
     }
 
     public String getUrlPattern() {
@@ -102,12 +102,12 @@ public class ProxyFailureStatistics implements Serializable {
         this.username = username;
     }
 
-    public Long getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
     
 }

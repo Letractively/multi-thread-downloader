@@ -21,6 +21,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import org.apache.log4j.Logger;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.HTTPResponseStatusCode;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
 import sk.lieskove.jianghongtiao.multithreaddownloader.site.SitePatternDownloadManager;
 
 /**
@@ -30,23 +31,26 @@ import sk.lieskove.jianghongtiao.multithreaddownloader.site.SitePatternDownloadM
  */
 public class RemoteDocumentThread extends Thread implements RemoteDocument {
 
-    private RemoteDocumentImpl remoteFile = new RemoteDocumentImpl();
+    private RemoteDocumentImpl remoteFile = null;
     private Logger log = Logger.getLogger(RemoteDocumentThread.class.getName());
     private SitePatternDownloadManager spdm;
 
     public RemoteDocumentThread() {
     }
 
-    public RemoteDocumentThread(URL url) {
-        remoteFile.setURL(url);
+    public RemoteDocumentThread(URL url, String uuid) {
+        remoteFile = new RemoteDocumentImpl(url, uuid);
     }
 
     @Override
     public void run() {
         log.debug("Running download thread for url: " + getURL());
         this.setName("RemoteDocumentThread: " + getURL());
-        remoteFile.retrieveRemoteContent();
-        spdm.finishedDownload(this);
+        try{
+            remoteFile.retrieveRemoteContent();
+        }finally{
+            spdm.finishedDownload(this);
+        }
         log.debug("Finished download thread for url: " + getURL());
     }
 
@@ -106,6 +110,26 @@ public class RemoteDocumentThread extends Thread implements RemoteDocument {
 
     public void setSitePatternDownloadManager(SitePatternDownloadManager spdm){
         this.spdm = spdm;
+    }
+
+    public ProxySelector getProxySelector() {
+        return remoteFile.getProxySelector();
+    }
+
+    public void setProxySelector(ProxySelector ps) {
+        remoteFile.setProxySelector(ps);
+    }
+
+    public boolean downloadSucceed() {
+        return remoteFile.downloadSucceed();
+    }
+
+    public void setUUID(String uuid) {
+        remoteFile.setUUID(uuid);
+    }
+
+    public String getUUID() {
+        return remoteFile.getUUID();
     }
 
 }

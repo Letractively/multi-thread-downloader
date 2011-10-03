@@ -56,7 +56,8 @@ public class SitePatternDownloadManagerImplTest extends TestCase {
         for (int i = 0; i < urlList.length; i++) {
             try {
                 String url = urlList[i];
-                remDoc.add(new RemoteDocumentThread(new URL(url)));
+                UUID uuid = UUID.randomUUID();
+                remDoc.add(new RemoteDocumentThread(new URL(url), uuid.toString()));
                 
             } catch (MalformedURLException ex) {
                 Logger.getLogger(SitePatternDownloadManagerImplTest.class.getName()).
@@ -81,8 +82,9 @@ public class SitePatternDownloadManagerImplTest extends TestCase {
         //fill DB
         Persist persist = Persist.getSingleton();
         URL url = new URL("http://google.com");
-        RemoteDocumentThread thread = new RemoteDocumentThread(url);
-        DownloadItem item = new DownloadItem(11, thread, UUID.randomUUID());
+        UUID uuid = UUID.randomUUID();
+        RemoteDocumentThread thread = new RemoteDocumentThread(url, uuid.toString());
+        DownloadItem item = new DownloadItem(11, thread, uuid);
 
         //1316808341002 - almost actual datetime (2011-09-23 21:07 +-)
 

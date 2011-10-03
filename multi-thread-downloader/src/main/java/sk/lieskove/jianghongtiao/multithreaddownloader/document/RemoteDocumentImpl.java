@@ -22,20 +22,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
+import java.net.NoRouteToHostException;
+import java.net.PortUnreachableException;
+import java.net.ProtocolException;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
 import java.net.URL;
-import java.util.UUID;
+import java.net.UnknownHostException;
+import java.net.UnknownServiceException;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import org.apache.log4j.Logger;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.AuthenticateProxy;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.HTTPResponseStatusCode;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
 import sk.lieskove.jianghongtiao.paris.utils.MimeUtils;
 
 /**
@@ -45,13 +54,11 @@ import sk.lieskove.jianghongtiao.paris.utils.MimeUtils;
  * @version 2011.0515
  */
 @Entity
-@Table(name="remote_file")
-public class RemoteDocumentImpl implements RemoteDocument, Serializable{
+@Table(name = "remote_file")
+public class RemoteDocumentImpl implements RemoteDocument, Serializable {
 
     @Id
-    @GeneratedValue
-    private Long id;
-    
+    private String uuid;
     @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER,
     targetEntity = HTTPResponseStatusCode.class)
     private HTTPResponseStatusCode returnCode;
@@ -64,39 +71,98 @@ public class RemoteDocumentImpl implements RemoteDocument, Serializable{
     @Transient
     private Charset charset = null;
     @Transient
-        private Charset remoteContentEncoding;
+    private Charset remoteContentEncoding;
     @Transient
     private Logger log = Logger.getLogger(RemoteDocumentImpl.class.getName());
+    @Transient
+    private ProxySelector ps = null;
+    private Boolean downloadSucceed = true;
 
     public RemoteDocumentImpl() {
     }
 
-    public RemoteDocumentImpl(URL url) {
+    public RemoteDocumentImpl(URL url, String uuid) {
+        if (url == null) {
+            throw new NullPointerException("URL was null!");
+        }
         this.url = url;
         this.location = url.toString();
+        this.uuid = uuid;
     }
 
     @Transient
     public void retrieveRemoteContent() {
+        HttpURLConnection remoteContent = null;
         try {
-
-            HttpURLConnection remoteContent = null;
-            remoteContent = (HttpURLConnection) url.openConnection();
-            try {
-                returnCode = new HTTPResponseStatusCode(remoteContent.getResponseCode());
-            } catch (ClassNotFoundException ex) {
-                log.info("Response code not found for: " +
-                        remoteContent.getResponseCode() + ". ");
-                returnCode = null;
+            if (ps == null) {
+                remoteContent = (HttpURLConnection) url.openConnection();
+            } else {
+                List<AuthenticateProxy> proxies = ps.getProxyList();
+                for (AuthenticateProxy authenticateProxy : proxies) {
+                    try {
+                        remoteContent = null;
+                        HttpURLConnection connection = authenticateProxy.
+                                getConnection(url);
+                        connection.setRequestProperty("Us" + "er" + "-A" + "gen"
+                                + "t",
+                                "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" //"M"+"ul"+ "ti"+ " "+ "T"+ "h"+ "r"+ "e"+ "a"+ "d"
+                                //+ " "+ "Do"+ "wnl"+ "oad"+ " "+ "Ma"+ "n"+ "age"+ 
+                                //"r - "+ "ht"+ "tp"+ ":/"+ "/co"+ "de.g"+ "oogl"
+                                //+ "e.c"+ "om/"+ "p/m"+ "ult"+ "i-th"+ "re"+ "ad-"
+                                //+ "dow"+ "nlo"+ "ade"+ "r/ "+ "(b"+ "y J"+ "ia"
+                                //+ "ng"+ "Ho"+ "n"+ "gTi"+ "ao)"
+                                );
+                        connection.connect();
+                        remoteContent = connection;
+                        ps.proxyUse(authenticateProxy, url, uuid, proxies);
+                        if (remoteContent != null) {
+                            returnCode = new HTTPResponseStatusCode(remoteContent.
+                                    getResponseCode());
+                        }
+                        break;
+                    } catch (SocketTimeoutException e) {
+                        log.info("Socket timeout for URL: " + url.toString(), e);
+                        failedToDownload();
+                    } catch (ConnectException ce) {
+                        ps.proxyFailure(authenticateProxy, url, uuid, ce.
+                                getMessage());
+                        failedToDownload();
+                    } catch (UnknownHostException e) {
+                        log.info("Cannot connect to the host: " + url.toString());
+                        failedToDownload();
+                    } catch (NoRouteToHostException e) {
+                        log.info("No route to host: " + url.toString());
+                        failedToDownload();
+                    } catch (PortUnreachableException e) {
+                        log.info("Port is unreachable: " + url.toString());
+                        failedToDownload();
+                    } catch (ProtocolException e) {
+                        log.error("Protocol TCP/IP exception: " + url.toString());
+                        failedToDownload();
+                    } catch (SocketException e) {
+                        log.error("Socket exception: " + url.toString());
+                        failedToDownload();
+                    } catch (UnknownServiceException e) {
+                        log.error("Unknown service exception: " + url.toString());
+                        failedToDownload();
+                    } catch (ClassNotFoundException ex) {
+                        log.info("Response code not found for: "
+                                + remoteContent.getResponseCode() + ". ");
+                        returnCode = null;
+                    }
+                }
+                if (remoteContent == null) {
+                    ps.noMoreProxies(url, uuid, proxies);
+                }
             }
 
             HTTPResponseStatusCode respCode = getReturnCode();
-            if (respCode.isSuccess()) {
+            if ((returnCode != null) && (respCode.isSuccess())) {
                 serverMimeType = remoteContent.getContentType();
-                tmpFile = File.createTempFile("Paris_", ".tmp");
+                tmpFile = File.createTempFile("MTDM_", ".tmp");
                 tmpFile.deleteOnExit();
-                remoteContentEncoding = RemoteFileEncoding.
-                        makeEncoding(remoteContent.getContentEncoding());
+                remoteContentEncoding = RemoteFileEncoding.makeEncoding(remoteContent.
+                        getContentEncoding());
                 InputStream is = remoteContent.getInputStream();
                 OutputStream os = new FileOutputStream(tmpFile);
                 byte[] buf = new byte[8192];
@@ -109,13 +175,24 @@ public class RemoteDocumentImpl implements RemoteDocument, Serializable{
                 }
                 os.flush();
                 os.close();
+            } else {
+                failedToDownload();
             }
         } catch (IOException ex) {
-            log.error("Cannot read file: " + tmpFile.getAbsolutePath(), ex);
-            tmpFile = null;
-            returnCode = null;
-            serverMimeType = null;
+            if (tmpFile == null) {
+                log.error("Cannot read URL: " + url.toString(), ex);
+            } else {
+                log.error("Cannot read file: " + tmpFile.getAbsolutePath(), ex);
+            }
+            failedToDownload();
         }
+    }
+
+    private void failedToDownload() {
+        tmpFile = null;
+        returnCode = null;
+        serverMimeType = null;
+        downloadSucceed = false;
     }
 
     @Override
@@ -146,7 +223,8 @@ public class RemoteDocumentImpl implements RemoteDocument, Serializable{
 
     @Override
     public String toString() {
-        return "RemoteFileImpl{" + "\n\treturnCode=" + returnCode + "\n\tmimeType=" + serverMimeType
+        return "RemoteFileImpl{" + "\n\treturnCode=" + returnCode
+                + "\n\tmimeType=" + serverMimeType
                 + "\n\ttmpFile=" + tmpFile + "\n\turl=" + url + "\n}";
     }
 
@@ -167,7 +245,7 @@ public class RemoteDocumentImpl implements RemoteDocument, Serializable{
 
     @Override
     public String getMimeType() {
-        if(mimeType == null){
+        if (mimeType == null) {
             mimeType = MimeUtils.getMimeTypeFromRemoteContentType(serverMimeType);
         }
         return mimeType;
@@ -186,13 +264,23 @@ public class RemoteDocumentImpl implements RemoteDocument, Serializable{
         this.location = location;
     }
 
-        public Long getId() {
-        return id;
+    public String getUUID() {
+        return this.uuid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUUID(String uuid) {
+        this.uuid = uuid;
     }
 
+    public ProxySelector getProxySelector() {
+        return ps;
+    }
 
+    public void setProxySelector(ProxySelector ps) {
+        this.ps = ps;
+    }
+
+    public boolean downloadSucceed() {
+        return downloadSucceed.booleanValue();
+    }
 }

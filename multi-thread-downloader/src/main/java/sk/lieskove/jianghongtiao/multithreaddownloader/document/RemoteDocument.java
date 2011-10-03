@@ -21,6 +21,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.UUID;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.HTTPResponseStatusCode;
+import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
 
 /**
  * Date of create: May 15, 2011
@@ -35,6 +36,19 @@ public interface RemoteDocument {
      * @return response status code returned by server
      */
     public HTTPResponseStatusCode getReturnCode();
+    
+    /**
+     * set unique object identifier
+     * @param uuid unique object identifier
+     */
+    public void setUUID(String uuid);
+    
+    /**
+     * get Unique identifier of the object
+     * 
+     * @return object identifier
+     */
+    public String getUUID();
 
     /**
      * get file mime-type returned by server
@@ -90,5 +104,25 @@ public interface RemoteDocument {
      * @param file new file to set
      */
     public void setFile(File file);
+    
+    /**
+     * Proxy selector used during the download
+     * @return proxy selector for this URL
+     */
+    public ProxySelector getProxySelector();
+    
+    /**
+     * Proxy selector used during the download
+     * @param ps proxy selector for this URL
+     */
+    public void setProxySelector(ProxySelector ps);
+    
+    /**
+     * Check if download of the file succeeded
+     * 
+     * @return <code>true</code> if download of the document was successful, 
+     * otherwise <code>false</code>
+     */
+    public boolean downloadSucceed();
 
 }

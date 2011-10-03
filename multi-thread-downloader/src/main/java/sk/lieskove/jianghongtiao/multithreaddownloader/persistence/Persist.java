@@ -16,9 +16,13 @@
  */
 package sk.lieskove.jianghongtiao.multithreaddownloader.persistence;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.FlushModeType;
 import javax.persistence.Persistence;
+import org.apache.log4j.Logger;
 import sk.lieskove.jianghongtiao.paris.utils.PropertiesUtils;
 
 /**
@@ -30,10 +34,11 @@ public class Persist {
     private static Persist pp = null;
     private EntityManagerFactory emFactory =
                 Persistence.createEntityManagerFactory("MultiThreadDownloaderDatastorePU");
-    private EntityManager em = emFactory.createEntityManager();
+    private final EntityManager em = emFactory.createEntityManager();
     private PropertiesUtils pu = new PropertiesUtils(Persist.class);
+    private static Logger log = Logger.getLogger(Persist.class.getName());
 
-    public static Persist getSingleton(){
+    public synchronized static Persist getSingleton(){
         if(pp == null){
             pp = new Persist();
         }
@@ -79,13 +84,29 @@ public class Persist {
      * @param entity entity to persist
      */
     public void persist(Object entity) {
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
+        EntityManager emL = getEntityManager();
+        synchronized(emL){
+            
+            EntityTransaction t = emL.getTransaction();
+            t.begin();
+            emL.persist(entity);
+            
+//            try{
+//                
+//            } catch(EntityExistsException e){
+//                if(entity instanceof AssignedProxyStatistics){
+//                    AssignedProxyStatistics aps = (AssignedProxyStatistics)entity;
+//                    log.warn("*** Object already exists: "+aps.getId());
+//                    t.setRollbackOnly();
+//                }
+//                
+//            }
+            t.commit();
+        }
     }
     
     public EntityManager getEntityManager(){
-        return em;
+        return emFactory.createEntityManager();
     }
 
 }
