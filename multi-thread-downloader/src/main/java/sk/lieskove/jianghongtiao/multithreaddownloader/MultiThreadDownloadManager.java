@@ -1,6 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *  Copyright (C) 2011 JiangHongTiao <jjurco.sk_gmail.com>
+ * 
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ * 
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package sk.lieskove.jianghongtiao.multithreaddownloader;
 
@@ -235,11 +247,10 @@ public interface MultiThreadDownloadManager {
      * till finish and then returns downloaded content. 
      * 
      * @param uuid identifier of the downloaded package
-     * @return list of downloaded remote files
-     * @throws IllegalArgumentException when no such uuid exists or download package
-     * with such uuid was already taken over.
+     * @return list of downloaded remote files or <code> null</code> when such 
+     * download does not exists
      */
-    public RemoteDocument getDownload(UUID uuid);
+    public RemoteDocument getDownload(UUID uuid) throws IllegalArgumentException;
     
     /**
      * Check if all threads downloading content from the Internet already finished. 
@@ -247,10 +258,9 @@ public interface MultiThreadDownloadManager {
      * till finish and then returns downloaded content. 
      * 
      * @param uuid identifier of the downloaded package
-     * @return list of downloaded remote files
-     * @throws IllegalArgumentException when no such uuid exists or download package
-     * with such uuid was already taken over.
+     * @return list of downloaded remote files or <code> null</code> when such 
+     * package does not exists
      */
-    public List<RemoteDocument> getPackage(UUID uuid);
+    public List<RemoteDocument> getPackage(UUID uuid) throws IllegalArgumentException;
     
 }
