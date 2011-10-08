@@ -21,11 +21,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocument;
 import sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread;
 import sk.lieskove.jianghongtiao.multithreaddownloader.download.DownloadItem;
@@ -34,7 +31,6 @@ import sk.lieskove.jianghongtiao.multithreaddownloader.settings.SettingsReader;
 import sk.lieskove.jianghongtiao.multithreaddownloader.settings.SiteSettings;
 import sk.lieskove.jianghongtiao.multithreaddownloader.site.DefaultSitePoolingManager;
 import sk.lieskove.jianghongtiao.multithreaddownloader.site.SitePoolingManager;
-import sk.lieskove.jianghongtiao.paris.web.content.RemoteFile;
 
 /**
  * Date of create: Sep 18, 2011

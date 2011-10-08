@@ -89,6 +89,10 @@ public class AuthenticateProxy {
         this.hostname = hostname;
         this.port = port;
     }
+    
+    public boolean isProxy(){
+        return !noProxy;
+    }
 
     public AuthenticateProxy(String hostname, int port, Proxy.Type type) {
         if(hostname == null){
@@ -226,6 +230,12 @@ public class AuthenticateProxy {
         return hostname + ":" + port + "(" + type + ")";
     }
 
+    /**
+     * get string representation of this class.
+     * 
+     * @return if there is no proxy, returns "NO PROXY" string. Otherwise string 
+     * has following format: username:password @ hostname:port (type)
+     */
     @Override
     public String toString() {
         if(noProxy){

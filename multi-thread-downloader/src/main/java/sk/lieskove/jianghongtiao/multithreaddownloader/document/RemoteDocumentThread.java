@@ -19,6 +19,7 @@ package sk.lieskove.jianghongtiao.multithreaddownloader.document;
 import java.io.File;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.sql.Timestamp;
 import org.apache.log4j.Logger;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.HTTPResponseStatusCode;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
@@ -130,6 +131,30 @@ public class RemoteDocumentThread extends Thread implements RemoteDocument {
 
     public String getUUID() {
         return remoteFile.getUUID();
+    }
+
+    public void setFetchTime(Timestamp fetchTime) {
+        remoteFile.setFetchTime(fetchTime);
+    }
+
+    public void setLoadingTime(Timestamp loadingTime) {
+        remoteFile.setLoadingTime(loadingTime);
+    }
+
+    public void setProxyString(String proxyString) {
+        remoteFile.setProxyString(proxyString);
+    }
+
+    public Timestamp getFetchTime() {
+        return remoteFile.getFetchTime();
+    }
+
+    public Timestamp getLoadingTime() {
+        return remoteFile.getLoadingTime();
+    }
+
+    public String getProxyString() {
+        return remoteFile.getProxyString();
     }
 
 }

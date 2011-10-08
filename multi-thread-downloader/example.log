@@ -249,3 +249,358 @@ DEBUG main java.lang.Class - Loading properties file for class: sk.lieskove.jian
 DEBUG main java.lang.Class - Using working directory: /home/xjuraj/Projects/master-thesis/program/multi-thread-downloader
 DEBUG main java.lang.Class - loading settings file: '../settings/general-weak-settings.xml'
 DEBUG main java.lang.Class - Loading properties file for class: sk.lieskove.jianghongtiao.multithreaddownloader.network.SettingsProxySelector.xml
+WARN RemoteDocumentThread: http://download.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/ReentrantLock.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/ReentrantLock.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+INFO RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController - Re-synchronized call to http://sk.wikibooks.org/w/index.php?title=%C5%A0peci%C3%A1lne%3ABannerListLoader&cache=/cn.js&language=sk&project=wikibooks&country=CZ
+WARN RemoteDocumentThread: http://download.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/ReentrantLock.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/ReentrantLock.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+INFO RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController - Re-synchronized call to http://sk.wikibooks.org/w/index.php?title=%C5%A0peci%C3%A1lne%3ABannerListLoader&cache=/cn.js&language=sk&project=wikibooks&country=CZ
+WARN RemoteDocumentThread: http://www.agilemodeling.com/essays/introductionToAM.htm com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://www.agilemodeling.com/essays/introductionToAM.htm com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+ERROR RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.html.DomNode - Error parsing CSS selectors from '*[class*="k2ajax-"]': Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+com.steadystate.css.sac.TestCSSParseException: Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+	at com.steadystate.css.parser.AbstractSACParser.toCSSParseException(AbstractSACParser.java:283)
+	at com.steadystate.css.parser.SACParserCSS21.attrib(SACParserCSS21.java:1367)
+	at com.steadystate.css.parser.SACParserCSS21.simpleSelector(SACParserCSS21.java:1117)
+	at com.steadystate.css.parser.SACParserCSS21.selector(SACParserCSS21.java:1050)
+	at com.steadystate.css.parser.SACParserCSS21.selectorList(SACParserCSS21.java:1009)
+	at com.steadystate.css.parser.AbstractSACParser.parseSelectors(AbstractSACParser.java:380)
+	at com.steadystate.css.parser.CSSOMParser.parseSelectors(CSSOMParser.java:186)
+	at com.gargoylesoftware.htmlunit.html.DomNode.querySelectorAll(DomNode.java:1513)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.querySelectorAll(HtmlPage.java:2305)
+	at com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument.jsxFunction_querySelectorAll(HTMLDocument.java:1653)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at net.sourceforge.htmlunit.corejs.javascript.MemberBox.invoke(MemberBox.java:172)
+	at net.sourceforge.htmlunit.corejs.javascript.FunctionObject.call(FunctionObject.java:479)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1701)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:854)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:429)
+	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:267)
+	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3183)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$4.doRun(JavaScriptEngine.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:589)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:545)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:520)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeJavaScriptFunctionIfPossible(HtmlPage.java:896)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeEventListeners(EventListenersContainer.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeBubblingListeners(EventListenersContainer.java:221)
+	at com.gargoylesoftware.htmlunit.javascript.host.Node.fireEvent(Node.java:735)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement$2.run(HtmlElement.java:866)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement.fireEvent(HtmlElement.java:871)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeEventHandlersIfNeeded(HtmlPage.java:1162)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:198)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:440)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:311)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:373)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentImpl.retrieveRemoteContent(RemoteDocumentImpl.java:149)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread.run(RemoteDocumentThread.java:50)
+ERROR RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.html.DomNode - Error parsing CSS selectors from '*[class*="k2over"], *[class*="k2focus"], *[class*="k2cl"], *[class*="k2show"], *[class*="k2hide"]': Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+com.steadystate.css.sac.TestCSSParseException: Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+	at com.steadystate.css.parser.AbstractSACParser.toCSSParseException(AbstractSACParser.java:283)
+	at com.steadystate.css.parser.SACParserCSS21.attrib(SACParserCSS21.java:1367)
+	at com.steadystate.css.parser.SACParserCSS21.simpleSelector(SACParserCSS21.java:1117)
+	at com.steadystate.css.parser.SACParserCSS21.selector(SACParserCSS21.java:1050)
+	at com.steadystate.css.parser.SACParserCSS21.selectorList(SACParserCSS21.java:1009)
+	at com.steadystate.css.parser.AbstractSACParser.parseSelectors(AbstractSACParser.java:380)
+	at com.steadystate.css.parser.CSSOMParser.parseSelectors(CSSOMParser.java:186)
+	at com.gargoylesoftware.htmlunit.html.DomNode.querySelectorAll(DomNode.java:1513)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.querySelectorAll(HtmlPage.java:2305)
+	at com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument.jsxFunction_querySelectorAll(HTMLDocument.java:1653)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at net.sourceforge.htmlunit.corejs.javascript.MemberBox.invoke(MemberBox.java:172)
+	at net.sourceforge.htmlunit.corejs.javascript.FunctionObject.call(FunctionObject.java:479)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1701)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:854)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:429)
+	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:267)
+	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3183)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$4.doRun(JavaScriptEngine.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:589)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:545)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:520)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeJavaScriptFunctionIfPossible(HtmlPage.java:896)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeEventListeners(EventListenersContainer.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeBubblingListeners(EventListenersContainer.java:221)
+	at com.gargoylesoftware.htmlunit.javascript.host.Node.fireEvent(Node.java:735)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement$2.run(HtmlElement.java:866)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement.fireEvent(HtmlElement.java:871)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeEventHandlersIfNeeded(HtmlPage.java:1162)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:198)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:440)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:311)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:373)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentImpl.retrieveRemoteContent(RemoteDocumentImpl.java:149)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread.run(RemoteDocumentThread.java:50)
+ERROR RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.html.DomNode - Error parsing CSS selectors from '*[class*="cTool-"]': Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+com.steadystate.css.sac.TestCSSParseException: Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+	at com.steadystate.css.parser.AbstractSACParser.toCSSParseException(AbstractSACParser.java:283)
+	at com.steadystate.css.parser.SACParserCSS21.attrib(SACParserCSS21.java:1367)
+	at com.steadystate.css.parser.SACParserCSS21.simpleSelector(SACParserCSS21.java:1117)
+	at com.steadystate.css.parser.SACParserCSS21.selector(SACParserCSS21.java:1050)
+	at com.steadystate.css.parser.SACParserCSS21.selectorList(SACParserCSS21.java:1009)
+	at com.steadystate.css.parser.AbstractSACParser.parseSelectors(AbstractSACParser.java:380)
+	at com.steadystate.css.parser.CSSOMParser.parseSelectors(CSSOMParser.java:186)
+	at com.gargoylesoftware.htmlunit.html.DomNode.querySelectorAll(DomNode.java:1513)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.querySelectorAll(HtmlPage.java:2305)
+	at com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument.jsxFunction_querySelectorAll(HTMLDocument.java:1653)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at net.sourceforge.htmlunit.corejs.javascript.MemberBox.invoke(MemberBox.java:172)
+	at net.sourceforge.htmlunit.corejs.javascript.FunctionObject.call(FunctionObject.java:479)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1701)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:854)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:429)
+	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:267)
+	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3183)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$4.doRun(JavaScriptEngine.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:589)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:545)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:520)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeJavaScriptFunctionIfPossible(HtmlPage.java:896)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeEventListeners(EventListenersContainer.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeBubblingListeners(EventListenersContainer.java:221)
+	at com.gargoylesoftware.htmlunit.javascript.host.Node.fireEvent(Node.java:735)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement$2.run(HtmlElement.java:866)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement.fireEvent(HtmlElement.java:871)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeEventHandlersIfNeeded(HtmlPage.java:1162)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:198)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:440)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:311)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:373)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentImpl.retrieveRemoteContent(RemoteDocumentImpl.java:149)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread.run(RemoteDocumentThread.java:50)
+ERROR RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.html.DomNode - Error parsing CSS selectors from 'img[src*="_off."]': Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+com.steadystate.css.sac.TestCSSParseException: Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+	at com.steadystate.css.parser.AbstractSACParser.toCSSParseException(AbstractSACParser.java:283)
+	at com.steadystate.css.parser.SACParserCSS21.attrib(SACParserCSS21.java:1367)
+	at com.steadystate.css.parser.SACParserCSS21.simpleSelector(SACParserCSS21.java:1117)
+	at com.steadystate.css.parser.SACParserCSS21.selector(SACParserCSS21.java:1050)
+	at com.steadystate.css.parser.SACParserCSS21.selectorList(SACParserCSS21.java:1009)
+	at com.steadystate.css.parser.AbstractSACParser.parseSelectors(AbstractSACParser.java:380)
+	at com.steadystate.css.parser.CSSOMParser.parseSelectors(CSSOMParser.java:186)
+	at com.gargoylesoftware.htmlunit.html.DomNode.querySelectorAll(DomNode.java:1513)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.querySelectorAll(HtmlPage.java:2305)
+	at com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument.jsxFunction_querySelectorAll(HTMLDocument.java:1653)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at net.sourceforge.htmlunit.corejs.javascript.MemberBox.invoke(MemberBox.java:172)
+	at net.sourceforge.htmlunit.corejs.javascript.FunctionObject.call(FunctionObject.java:479)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1701)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:854)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:429)
+	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:267)
+	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3183)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$4.doRun(JavaScriptEngine.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:589)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:545)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:520)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeJavaScriptFunctionIfPossible(HtmlPage.java:896)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeEventListeners(EventListenersContainer.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeBubblingListeners(EventListenersContainer.java:221)
+	at com.gargoylesoftware.htmlunit.javascript.host.Node.fireEvent(Node.java:735)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement$2.run(HtmlElement.java:866)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement.fireEvent(HtmlElement.java:871)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeEventHandlersIfNeeded(HtmlPage.java:1162)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:198)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:440)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:311)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:373)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentImpl.retrieveRemoteContent(RemoteDocumentImpl.java:149)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread.run(RemoteDocumentThread.java:50)
+ERROR RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.html.DomNode - Error parsing CSS selectors from 'img[class*="mswap"]': Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+com.steadystate.css.sac.TestCSSParseException: Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+	at com.steadystate.css.parser.AbstractSACParser.toCSSParseException(AbstractSACParser.java:283)
+	at com.steadystate.css.parser.SACParserCSS21.attrib(SACParserCSS21.java:1367)
+	at com.steadystate.css.parser.SACParserCSS21.simpleSelector(SACParserCSS21.java:1117)
+	at com.steadystate.css.parser.SACParserCSS21.selector(SACParserCSS21.java:1050)
+	at com.steadystate.css.parser.SACParserCSS21.selectorList(SACParserCSS21.java:1009)
+	at com.steadystate.css.parser.AbstractSACParser.parseSelectors(AbstractSACParser.java:380)
+	at com.steadystate.css.parser.CSSOMParser.parseSelectors(CSSOMParser.java:186)
+	at com.gargoylesoftware.htmlunit.html.DomNode.querySelectorAll(DomNode.java:1513)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.querySelectorAll(HtmlPage.java:2305)
+	at com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument.jsxFunction_querySelectorAll(HTMLDocument.java:1653)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at net.sourceforge.htmlunit.corejs.javascript.MemberBox.invoke(MemberBox.java:172)
+	at net.sourceforge.htmlunit.corejs.javascript.FunctionObject.call(FunctionObject.java:479)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1701)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:854)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:429)
+	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:267)
+	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3183)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$4.doRun(JavaScriptEngine.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:589)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:545)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:520)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeJavaScriptFunctionIfPossible(HtmlPage.java:896)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeEventListeners(EventListenersContainer.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeBubblingListeners(EventListenersContainer.java:221)
+	at com.gargoylesoftware.htmlunit.javascript.host.Node.fireEvent(Node.java:735)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement$2.run(HtmlElement.java:866)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement.fireEvent(HtmlElement.java:871)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeEventHandlersIfNeeded(HtmlPage.java:1162)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:198)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:440)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:311)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:373)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentImpl.retrieveRemoteContent(RemoteDocumentImpl.java:149)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread.run(RemoteDocumentThread.java:50)
+ERROR RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.html.DomNode - Error parsing CSS selectors from 'form[class*="wgform-"], form[class*="rgform-"]': Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+com.steadystate.css.sac.TestCSSParseException: Error in attribute selector. Invalid token "*". Was expecting one of: <S>, "=", "]", "~=", "|=".
+	at com.steadystate.css.parser.AbstractSACParser.toCSSParseException(AbstractSACParser.java:283)
+	at com.steadystate.css.parser.SACParserCSS21.attrib(SACParserCSS21.java:1367)
+	at com.steadystate.css.parser.SACParserCSS21.simpleSelector(SACParserCSS21.java:1117)
+	at com.steadystate.css.parser.SACParserCSS21.selector(SACParserCSS21.java:1050)
+	at com.steadystate.css.parser.SACParserCSS21.selectorList(SACParserCSS21.java:1009)
+	at com.steadystate.css.parser.AbstractSACParser.parseSelectors(AbstractSACParser.java:380)
+	at com.steadystate.css.parser.CSSOMParser.parseSelectors(CSSOMParser.java:186)
+	at com.gargoylesoftware.htmlunit.html.DomNode.querySelectorAll(DomNode.java:1513)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.querySelectorAll(HtmlPage.java:2305)
+	at com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument.jsxFunction_querySelectorAll(HTMLDocument.java:1653)
+	at sun.reflect.GeneratedMethodAccessor46.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at net.sourceforge.htmlunit.corejs.javascript.MemberBox.invoke(MemberBox.java:172)
+	at net.sourceforge.htmlunit.corejs.javascript.FunctionObject.call(FunctionObject.java:479)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1701)
+	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:854)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:429)
+	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:267)
+	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3183)
+	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$4.doRun(JavaScriptEngine.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:589)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:545)
+	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.callFunction(JavaScriptEngine.java:520)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeJavaScriptFunctionIfPossible(HtmlPage.java:896)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeEventListeners(EventListenersContainer.java:162)
+	at com.gargoylesoftware.htmlunit.javascript.host.EventListenersContainer.executeBubblingListeners(EventListenersContainer.java:221)
+	at com.gargoylesoftware.htmlunit.javascript.host.Node.fireEvent(Node.java:735)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement$2.run(HtmlElement.java:866)
+	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:537)
+	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:538)
+	at com.gargoylesoftware.htmlunit.html.HtmlElement.fireEvent(HtmlElement.java:871)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.executeEventHandlersIfNeeded(HtmlPage.java:1162)
+	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:198)
+	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:440)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:311)
+	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:373)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentImpl.retrieveRemoteContent(RemoteDocumentImpl.java:149)
+	at sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocumentThread.run(RemoteDocumentThread.java:50)
+INFO RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController - Re-synchronized call to http://en.wikipedia.org/w/index.php?title=Special%3ABannerListLoader&cache=/cn.js&language=en&project=wikipedia&country=CZ
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/ReentrantLock.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://download.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/ReentrantLock.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://www.agilemodeling.com/essays/introductionToAM.htm com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://www.agilemodeling.com/essays/introductionToAM.htm com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+INFO RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController - Re-synchronized call to http://sk.wikibooks.org/w/index.php?title=%C5%A0peci%C3%A1lne%3ABannerListLoader&cache=/cn.js&language=sk&project=wikibooks&country=CZ
+INFO RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController - Re-synchronized call to http://en.wikipedia.org/w/index.php?title=Special%3ABannerListLoader&cache=/cn.js&language=en&project=wikipedia&country=CZ
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+WARN RemoteDocumentThread: http://en.wikipedia.org/wiki/RDFS com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'text/javascript'.
+INFO RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec org.apache.http.impl.client.DefaultHttpClient - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request: The target server failed to respond
+INFO RemoteDocumentThread: http://sk.wikibooks.org/wiki/Modlitby:_Ru%C5%BEenec#Mari.C3.A1nsky_ru.C5.BEenec org.apache.http.impl.client.DefaultHttpClient - Retrying request
+WARN RemoteDocumentThread: http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl - Obsolete content type encountered: 'application/x-javascript'.
