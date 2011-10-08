@@ -20,7 +20,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.UUID;
 import sk.lieskove.jianghongtiao.multithreaddownloader.document.RemoteDocument;
-import sk.lieskove.jianghongtiao.paris.web.content.RemoteFile;
 
 /**
  * Multi thread downloader is a download manager made for multi thread environment when more treads simultaneously can access to some restricted resources. 

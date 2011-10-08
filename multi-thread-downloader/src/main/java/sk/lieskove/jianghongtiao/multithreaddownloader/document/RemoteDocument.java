@@ -19,6 +19,7 @@ package sk.lieskove.jianghongtiao.multithreaddownloader.document;
 import java.io.File;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.sql.Timestamp;
 import java.util.UUID;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.HTTPResponseStatusCode;
 import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
@@ -30,6 +31,42 @@ import sk.lieskove.jianghongtiao.multithreaddownloader.network.ProxySelector;
  * @version 2011.0515
  */
 public interface RemoteDocument {
+    
+    /**
+     * when the document was fetched
+     * @param fetchTime time of document download
+     */
+    public void setFetchTime(Timestamp fetchTime);
+    
+    /**
+     * how long it took to fetch document
+     * @param loadingTime how long was document receiving 
+     */
+    public void setLoadingTime(Timestamp loadingTime);
+    
+    /**
+     * proxy used during download
+     * @param proxyString  proxy connection string
+     */
+    public void setProxyString(String proxyString);
+    
+    /**
+     * when the document was fetched
+     * @return time of document download
+     */
+    public Timestamp getFetchTime();
+    
+    /**
+     * how long it took to fetch document
+     * @return how long was document receiving 
+     */
+    public Timestamp getLoadingTime();
+    
+    /**
+     * proxy used during download
+     * @return proxy connection string
+     */
+    public String getProxyString();
 
     /**
      * get file response status code returned by server
